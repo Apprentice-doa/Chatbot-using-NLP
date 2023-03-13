@@ -71,7 +71,7 @@ def get_text():
     return df_input  
 
 # Loading Image using PIL
-im = Image.open('content\medical-cross.png')
+im = Image.open('content/medical-cross.png')
 # Adding Image to web app
 st.set_page_config(page_title="pharmbot", page_icon = im)
 
