@@ -78,16 +78,16 @@ st.set_page_config(page_title="pharmbot", page_icon = im)
 col1, mid, col2 = st.columns([1,14,14])
 with col1:
     st.title("""
-Pharmbot """)
+Pharmma """)
     
 with col2:
     st.image(bot, width=60) 
 
 
 st.write("""
-Pharmbot is a virtual pharmacist assistant developed to help you with basic questions related to pregnancy.""")
+Phamma is a virtual pharmacist assistant developed to help you with basic questions related to pregnancy.""")
 
-st.sidebar.title("Pharmbot")
+st.sidebar.title("Pharmma")
 
 hide_default_format = """
        <style>
@@ -97,13 +97,11 @@ hide_default_format = """
        """
 st.markdown(hide_default_format, unsafe_allow_html=True)
 st.sidebar.image(side)
-#st.sidebar.image(nadal,width=350)
-
-
 
 user_input = get_text()
 response = botResponse(user_input)
-st.text_area("Pharmbot:", value=response, height=200, max_chars=None, key=None)
+st.text_area("Pharmma:", value=response, height=200, max_chars=None, key=None)
+
 hide_default_format = """
        <style>
        #MainMenu {visibility: hidden; }
