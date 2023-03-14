@@ -3,6 +3,8 @@ import re
 import json
 import nltk
 from nltk.corpus import stopwords
+import nltk
+nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import load_model
