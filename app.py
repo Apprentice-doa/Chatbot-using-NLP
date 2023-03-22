@@ -7,7 +7,12 @@ from pathlib import Path
 import preprocessor as p
 from PIL import Image
 import SessionState
+import speech_recognition as sr
 
+# Loading Image using PIL
+im = Image.open('content/medical-cross.png')
+# Adding Image to web app
+st.set_page_config(page_title="pharmbot", page_icon = im)
 
 img_path = Path.joinpath(Path.cwd(),'content')
 artifacts_path = Path.joinpath(Path.cwd(),'model_artifacts')
@@ -64,16 +69,30 @@ def botResponse(user_input):
         return response
     else:
         return response
-
+    
+#use_voice_input = st.sidebar.radio("Select input method", ("Voice Input", "Text Input"))
+    
 def get_text():
-    input_text = st.text_input("You: ", key='text_input', max_chars=None, placeholder="type here")
-    df_input = pd.DataFrame([input_text],columns=['questions'])
-    return df_input  
+# read input from text
+    input_text  =st.text_input("You: ", key='text_input', max_chars=None, placeholder="type here")
 
-# Loading Image using PIL
-im = Image.open('content/medical-cross.png')
-# Adding Image to web app
-st.set_page_config(page_title="pharmbot", page_icon = im)
+    df_input = pd.DataFrame([input_text],columns=['questions'])
+    return df_input 
+
+def get_audio():
+    # obtain audio from the microphone
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Speak:")
+        audio = r.listen(source, timeout=10, phrase_time_limit=10)
+    try:
+        input_text = r.recognize_google(audio)
+        st.write("You:", input_text)
+        df_input = pd.DataFrame([input_text], columns=['questions'])
+    except sr.UnknownValueError:
+        df_input = pd.DataFrame([''], columns=['questions'])
+    return df_input
+
 
 col1, mid, col2 = st.columns([1,14,14])
 with col1:
@@ -98,9 +117,20 @@ hide_default_format = """
 st.markdown(hide_default_format, unsafe_allow_html=True)
 st.sidebar.image(side)
 
-user_input = get_text()
+voice = st.button("Start", key="Start")
+
+st.write("Press the button and start speaking.")
+
+if voice:
+    user_input = get_audio()
+else:
+    user_input = get_text()
+    
+
 response = botResponse(user_input)
+
 st.text_area("Pharmma:", value=response, height=200, max_chars=None, key=None)
+st.button("Restart")
 
 hide_default_format = """
        <style>
