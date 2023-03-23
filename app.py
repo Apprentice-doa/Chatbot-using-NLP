@@ -84,7 +84,7 @@ def get_audio():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Speak:")
-        audio = r.listen(source, timeout=10, phrase_time_limit=10)
+        audio = r.listen(source, timeout=2, phrase_time_limit=5)
     try:
         input_text = r.recognize_google(audio)
         st.write("You:", input_text)
