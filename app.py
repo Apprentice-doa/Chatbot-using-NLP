@@ -8,6 +8,7 @@ import preprocessor as p
 from PIL import Image
 import SessionState
 import speech_recognition as sr
+#import streamlit_webrtc as webrtc
 
 # Loading Image using PIL
 im = Image.open('content/medical-cross.png')
@@ -79,7 +80,7 @@ def get_text():
     df_input = pd.DataFrame([input_text],columns=['questions'])
     return df_input 
 
-def get_audio():
+#def get_audio():
     # obtain audio from the microphone
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -92,7 +93,6 @@ def get_audio():
     except sr.UnknownValueError:
         df_input = pd.DataFrame([''], columns=['questions'])
     return df_input
-
 
 col1, mid, col2 = st.columns([1,14,14])
 with col1:
@@ -117,16 +117,15 @@ hide_default_format = """
 st.markdown(hide_default_format, unsafe_allow_html=True)
 st.sidebar.image(side)
 
-voice = st.button("Start", key="Start")
+#voice = st.button("Speak", key="Start")
 
-st.write("Press the button and start speaking.")
+#st.write("Press the button and start speaking.")
 
-if voice:
-    user_input = get_audio()
-else:
-    user_input = get_text()
+#if voice:
+    #user_input = get_audio()
+#else:
+user_input = get_text()
     
-
 response = botResponse(user_input)
 
 st.text_area("Pharmma:", value=response, height=200, max_chars=None, key=None)
