@@ -97,16 +97,18 @@ def get_text():
 col1, mid, col2 = st.columns([1,14,14])
 with col1:
     st.title("""
-Pharmma """)
+Racky """)
     
 with col2:
     st.image(bot, width=60) 
 
 
+#st.write("""
+#Phamma is a virtual pharmacist assistant developed to help you with basic questions related to pregnancy.""")
 st.write("""
-Phamma is a virtual pharmacist assistant developed to help you with basic questions related to pregnancy.""")
+Racky is an NLP-trained chatbot developed to give you information about Tennis.""")
 
-st.sidebar.title("Pharmma")
+#st.sidebar.title("Pharmma")
 
 hide_default_format = """
        <style>
@@ -115,7 +117,7 @@ hide_default_format = """
        </style>
        """
 st.markdown(hide_default_format, unsafe_allow_html=True)
-st.sidebar.image(side)
+#st.sidebar.image(side)
 
 #voice = st.button("Speak", key="Start")
 
@@ -127,7 +129,7 @@ st.sidebar.image(side)
 user_input = get_text()
     
 response = botResponse(user_input)
-st.write("Pharmma:" + "\n", response)
+st.write("Racky:" + "\n", response)
 
 st.button("Submit")
 

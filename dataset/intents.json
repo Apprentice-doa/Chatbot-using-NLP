@@ -7,7 +7,7 @@
 
     {"tag": "what_are_you",
      "patterns": ["What is your name?", "what are you?", "who are you?","your name pls?"],
-     "responses": ["Hi, I'm  BoTennis", "I'm BoTennis ", "Call me BoTennis"],
+     "responses": ["Hi, I'm  Racky", "I'm Racky ", "Call me Racky"],
      "context": [""]
     },
     {"tag": "end_conversation",
