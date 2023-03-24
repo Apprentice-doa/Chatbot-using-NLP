@@ -94,7 +94,7 @@ def get_text():
         df_input = pd.DataFrame([''], columns=['questions'])
     return df_input
 
-col1, mid, col2 = st.columns([1,14,14])
+col1, mid, col2 = st.columns([1,14,30])
 with col1:
     st.title("""
 Racky """)
