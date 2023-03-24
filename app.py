@@ -127,8 +127,8 @@ st.sidebar.image(side)
 user_input = get_text()
     
 response = botResponse(user_input)
+st.write("Pharmma:" + "\n", response)
 
-st.text_area("Pharmma:", value=response, height=200, max_chars=None, key=None)
 st.button("Submit")
 
 hide_default_format = """
