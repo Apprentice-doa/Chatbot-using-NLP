@@ -13,7 +13,7 @@ import speech_recognition as sr
 # Loading Image using PIL
 im = Image.open('content/medical-cross.png')
 # Adding Image to web app
-st.set_page_config(page_title="pharmbot", page_icon = im)
+st.set_page_config(page_title="Racky", page_icon = im)
 
 img_path = Path.joinpath(Path.cwd(),'content')
 artifacts_path = Path.joinpath(Path.cwd(),'model_artifacts')
