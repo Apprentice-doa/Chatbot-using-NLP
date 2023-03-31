@@ -83,17 +83,17 @@ def get_text():
 
 #def get_audio():
     # obtain audio from the microphone
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Speak:")
-        audio = r.listen(source, timeout=2, phrase_time_limit=5)
-    try:
-        input_text = r.recognize_google(audio)
-        st.write("You:", input_text)
-        df_input = pd.DataFrame([input_text], columns=['questions'])
-    except sr.UnknownValueError:
-        df_input = pd.DataFrame([''], columns=['questions'])
-    return df_input
+    #r = sr.Recognizer()
+    #with sr.Microphone() as source:
+        #print("Speak:")
+        #audio = r.listen(source, timeout=2, phrase_time_limit=5)
+   # try:
+        #input_text = r.recognize_google(audio)
+        #st.write("You:", input_text)
+        #df_input = pd.DataFrame([input_text], columns=['questions'])
+   # except sr.UnknownValueError:
+        #df_input = pd.DataFrame([''], columns=['questions'])
+   # return df_input
 
 col1, mid, col2 = st.columns([1,14,30])
 with col1:
