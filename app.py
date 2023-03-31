@@ -10,6 +10,7 @@ import SessionState
 import speech_recognition as sr
 #import streamlit_webrtc as webrtc
 
+print(st.__version__)
 # Loading Image using PIL
 im = Image.open('content/medical-cross.png')
 # Adding Image to web app
