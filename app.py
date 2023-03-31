@@ -12,7 +12,7 @@ import speech_recognition as sr
 
 print(st.__version__)
 # Loading Image using PIL
-im = Image.open('content/medical-cross.png')
+im = Image.open('content/bot.png')
 # Adding Image to web app
 st.set_page_config(page_title="Racky", page_icon = im)
 
@@ -21,10 +21,8 @@ artifacts_path = Path.joinpath(Path.cwd(),'model_artifacts')
 datasets_path = Path.joinpath(Path.cwd(),'dataset')
 
 #load images 
-side = Image.open(Path.joinpath(img_path,'medical-cross.png'))
+#side = Image.open(Path.joinpath(img_path,'medical-cross.png'))
 bot = Image.open(Path.joinpath(img_path,'bot.png'))
-pearl = Image.open(Path.joinpath(img_path,'oyster.png'))
-
 
 model = load_model('model-v1.h5')
 tokenizer_t = joblib.load('tokenizer_t.pkl')
@@ -87,13 +85,13 @@ def get_text():
     #with sr.Microphone() as source:
         #print("Speak:")
         #audio = r.listen(source, timeout=2, phrase_time_limit=5)
-   # try:
+    #try:
         #input_text = r.recognize_google(audio)
         #st.write("You:", input_text)
         #df_input = pd.DataFrame([input_text], columns=['questions'])
-   # except sr.UnknownValueError:
+    #except sr.UnknownValueError:
         #df_input = pd.DataFrame([''], columns=['questions'])
-   # return df_input
+    #return df_input
 
 col1, mid, col2 = st.columns([1,14,30])
 with col1:
